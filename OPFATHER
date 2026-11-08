@@ -1,0 +1,408 @@
+-- ============================================================================
+-- NOX - ROAST SPAM MEGA EDITION (BLUE UI EXTREME)
+-- ============================================================================
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local LocalPlayer = Players.LocalPlayer
+
+-- Chat Engine Function
+local function SayMessage(msg)
+local TextChatService = game:GetService("TextChatService")
+if TextChatService and TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
+if TextChatService:FindFirstChild("ChatInputBarConfiguration") then
+local channel = TextChatService.ChatInputBarConfiguration.TargetTextChannel
+if channel then
+channel:SendAsync(msg)
+end
+end
+else
+local remote = ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents")
+if remote then
+local keys = remote:FindFirstChild("Keys")
+if keys then
+local sendMsg = keys:FindFirstChild("SendMessage")
+if sendMsg then
+sendMsg:InvokeServer(msg, "All")
+end
+end
+end
+end
+end
+
+-- Fixed Single Message Execute Layer (Exact Layout In One Message)
+task.spawn(function()
+print("=======================================")
+print("ROAST SPAM MEGA LOADED BY EDRIN 👑")
+print("=======================================")
+task.wait(1.0)
+
+pcall(function()
+game:GetService("StarterGui"):SetCore("SendNotification", {
+Title = "MEGA ROAST LOADED",
+Text = "MADE BY NOX👑",
+Duration = 8
+})
+end)
+
+task.wait(0.5)
+
+-- Combines your exact layout into one single payload string using newlines
+local exactExecuteMsg = " NOX AUTO REPLY BOT💻\n____________________________________________________________________________________\n_____________________AUTO REPLY BOT💻 loaded...."
+SayMessage(exactExecuteMsg)
+end)
+
+-- Sound Function
+local function PlayClickSound()
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://12221967"
+sound.Volume = 1
+sound.Parent = game:GetService("SoundService")
+sound:Play()
+game:GetService("Debris"):AddItem(sound, 1)
+end
+
+-- Create Core UI
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "DemonKingMegaRoastUIBlue"
+ScreenGui.Parent = game:GetService("CoreGui") or LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+-- FLOATING NEON TOGGLE BOX (UPDATED TO BLUE STROKE)
+local ToggleButton = Instance.new("ImageButton")
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Size = UDim2.new(0, 75, 0, 75)
+ToggleButton.Position = UDim2.new(0.05, 0, 0.4, 0)
+ToggleButton.BackgroundColor3 = Color3.fromRGB(5, 5, 20)
+ToggleButton.BackgroundTransparency = 0.2
+ToggleButton.Image = "rbxassetid://18274737604"
+ToggleButton.Active = true
+ToggleButton.Draggable = true
+ToggleButton.Parent = ScreenGui
+
+local ToggleCorner = Instance.new("UICorner")
+ToggleCorner.CornerRadius = UDim.new(0, 15)
+ToggleCorner.Parent = ToggleButton
+
+local ToggleStroke = Instance.new("UIStroke")
+ToggleStroke.Thickness = 3
+ToggleStroke.Color = Color3.fromRGB(0, 150, 255) -- Neon Blue
+ToggleStroke.Parent = ToggleButton
+
+-- MAIN WRAPPER FRAME (UPDATED TO BLUE THEME)
+local GlowOuterFrame = Instance.new("Frame")
+GlowOuterFrame.Name = "GlowOuterFrame"
+GlowOuterFrame.Size = UDim2.new(0, 368, 0, 373)
+GlowOuterFrame.Position = UDim2.new(0.5, -184, 0.5, -186)
+GlowOuterFrame.BackgroundColor3 = Color3.fromRGB(0, 150, 255) -- Neon Blue Glow
+GlowOuterFrame.BackgroundTransparency = 0.8
+GlowOuterFrame.Active = true
+GlowOuterFrame.Draggable = true
+GlowOuterFrame.Visible = false
+GlowOuterFrame.Parent = ScreenGui
+
+local OuterCorner = Instance.new("UICorner")
+OuterCorner.CornerRadius = UDim.new(0, 12)
+OuterCorner.Parent = GlowOuterFrame
+
+local OuterStroke = Instance.new("UIStroke")
+OuterStroke.Thickness = 4
+OuterStroke.Color = Color3.fromRGB(0, 150, 255) -- Neon Blue
+OuterStroke.Parent = GlowOuterFrame
+
+-- MAIN MENU FRAME
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, 360, 0, 365)
+MainFrame.Position = UDim2.new(0, 4, 0, 4)
+MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 15) -- Darker Blue-Black
+MainFrame.BackgroundTransparency = 0.15
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = GlowOuterFrame
+
+local MainCorner = Instance.new("UICorner")
+MainCorner.CornerRadius = UDim.new(0, 10)
+MainCorner.Parent = MainFrame
+
+local CoreUIStroke = Instance.new("UIStroke")
+CoreUIStroke.Thickness = 2.5
+CoreUIStroke.Color = Color3.fromRGB(0, 150, 255) -- Neon Blue Border
+CoreUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+CoreUIStroke.Parent = MainFrame
+
+-- Title Text: ROAST SPAM
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Position = UDim2.new(0, 0, 0, 10)
+Title.BackgroundTransparency = 1
+Title.Text = "💀 AUTO REPLY BOT💀"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 18
+Title.Font = Enum.Font.SourceSansBold
+Title.Parent = MainFrame
+
+-- Subtitle Text: MADE BY NOX👑 (Kept Reddish/Pink for highlights)
+local SubTitle = Instance.new("TextLabel")
+SubTitle.Size = UDim2.new(1, 0, 0, 20)
+SubTitle.Position = UDim2.new(0, 0, 0, 35)
+SubTitle.BackgroundTransparency = 1
+SubTitle.Text = "MADE BY NOX👑"
+SubTitle.TextColor3 = Color3.fromRGB(255, 180, 200) -- Lighter Pink for contrast
+SubTitle.TextSize = 13
+SubTitle.Font = Enum.Font.SourceSansBold
+SubTitle.Parent = MainFrame
+
+-- Input: Target Username
+local TargetInput = Instance.new("TextBox")
+TargetInput.PlaceholderText = "🎯 Enter Target Name..."
+TargetInput.Size = UDim2.new(0.9, 0, 0, 40)
+TargetInput.Position = UDim2.new(0.05, 0, 0, 75)
+TargetInput.BackgroundColor3 = Color3.fromRGB(15, 15, 30) -- Dark Blue background
+TargetInput.BackgroundTransparency = 0.4
+TargetInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+TargetInput.TextSize = 14
+TargetInput.Font = Enum.Font.SourceSans
+TargetInput.Parent = MainFrame
+
+local TargetCorner = Instance.new("UICorner")
+TargetCorner.CornerRadius = UDim.new(0, 6)
+TargetCorner.Parent = TargetInput
+
+-- Input: Speed Delay
+local SpeedInput = Instance.new("TextBox")
+SpeedInput.PlaceholderText = "⚡ Speed Delay"
+SpeedInput.Text = "0.9"
+SpeedInput.Size = UDim2.new(0.9, 0, 0, 40)
+SpeedInput.Position = UDim2.new(0.05, 0, 0, 130)
+SpeedInput.BackgroundColor3 = Color3.fromRGB(15, 15, 30) -- Dark Blue background
+SpeedInput.BackgroundTransparency = 0.4
+SpeedInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedInput.TextSize = 14
+SpeedInput.Font = Enum.Font.SourceSans
+SpeedInput.Parent = MainFrame
+
+local SpeedCorner = Instance.new("UICorner")
+SpeedCorner.CornerRadius = UDim.new(0, 6)
+SpeedCorner.Parent = SpeedInput
+
+-- Button: Start Spam (UPDATED TO BLUE THEME)
+local StartBtn = Instance.new("TextButton")
+StartBtn.Text = "EXECUTE ROAST 😈"
+StartBtn.Size = UDim2.new(0.9, 0, 0, 45)
+StartBtn.Position = UDim2.new(0.05, 0, 0, 195)
+StartBtn.BackgroundColor3 = Color3.fromRGB(0, 100, 255) -- Solid Blue
+StartBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+StartBtn.TextSize = 16
+StartBtn.Font = Enum.Font.SourceSansBold
+StartBtn.Parent = MainFrame
+
+local StartCorner = Instance.new("UICorner")
+StartCorner.CornerRadius = UDim.new(0, 6)
+StartCorner.Parent = StartBtn
+
+-- Button: Stop Spam (Kept Red for Stop signage)
+local StopBtn = Instance.new("TextButton")
+StopBtn.Text = "STOP SPAM 🛑"
+StopBtn.Size = UDim2.new(0.9, 0, 0, 45)
+StopBtn.Position = UDim2.new(0.05, 0, 0, 255)
+StopBtn.BackgroundColor3 = Color3.fromRGB(150, 0, 0) -- Kept Red for Stop
+StopBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+StopBtn.TextSize = 16
+StopBtn.Font = Enum.Font.SourceSansBold
+StopBtn.Parent = MainFrame
+
+local StopCorner = Instance.new("UICorner")
+StopCorner.CornerRadius = UDim.new(0, 6)
+StopCorner.Parent = StopBtn
+
+-- Bottom Status Tag
+local FooterText = Instance.new("TextLabel")
+FooterText.Size = UDim2.new(1, 0, 0, 30)
+FooterText.Position = UDim2.new(0, 0, 1, -30)
+FooterText.BackgroundTransparency = 1
+FooterText.Text = "STATUS: MEGA ROAST BLUE EDITION ☠️"
+FooterText.TextColor3 = Color3.fromRGB(150, 150, 150)
+FooterText.TextSize = 11
+FooterText.Font = Enum.Font.SourceSans
+FooterText.Parent = MainFrame
+
+-- Close Button
+local CloseBtn = Instance.new("TextButton")
+CloseBtn.Text = "X"
+CloseBtn.Size = UDim2.new(0, 30, 0, 30)
+CloseBtn.Position = UDim2.new(1, -35, 0, 5)
+CloseBtn.BackgroundTransparency = 1
+CloseBtn.TextColor3 = Color3.fromRGB(255, 100, 100)
+CloseBtn.TextSize = 18
+CloseBtn.Font = Enum.Font.SourceSansBold
+CloseBtn.Parent = MainFrame
+
+-- Link Connections
+ToggleButton.MouseButton1Click:Connect(function()
+PlayClickSound()
+GlowOuterFrame.Visible = not GlowOuterFrame.Visible
+end)
+
+CloseBtn.MouseButton1Click:Connect(function()
+PlayClickSound()
+ScreenGui:Destroy()
+end)
+
+local IsSpamming = false
+
+StartBtn.MouseButton1Click:Connect(function()
+PlayClickSound()
+if IsSpamming then return end
+IsSpamming = true
+StartBtn.Text = "MEGA ROAST BLUE ACTIVE..."
+StartBtn.BackgroundColor3 = Color3.fromRGB(10, 50, 120) -- Darker Blue Active
+
+local delayTime = tonumber(SpeedInput.Text) or 0.9
+
+-- 165+ SEQUENTIAL EXTREME LOOP LINES
+local templates = {
+"[TARGET] CUD KE DFFN BY NOX😂",
+"[TARGET] DAR KYU RHA HAI??🤡🤡",
+"[TARGET] TMX MEH JOHN CENA DAL DUNGA😮",
+"[TARGET] LADNA TOH SIKHLE RND",
+"[TARGET] PAIDAISH RND THA TU🥀",
+"[TARGET] TERI () PE LATH MAR DUNGA 😹",
+"[TARGET] ITNA LALLU FYTER??😭",
+"[TARGET] TERI () MAIN HAGGYS DAL DUNGA😤",
+"[TARGET] AWWW KITNA BARA RND HAI TU👀✨",
+"[TARGET] ABE JA DELETE KARDE ROBLOX😹😂",
+"[TARGET] PAPA BOL RN.DK😍",
+"[TARGET] TMX MEH DELTA🍁",
+"[TARGET] TMX MEH ANDHA🥚",
+"[TARGET] LELE L🏴‍☠️",
+"[TARGET] TMX MEH TITAN 🧚",
+"[TARGET] RE-DFFN HONE AYA HAI KYA LALLU LAAL🤣",
+"[TARGET] NOX SE TAKRAYEGA TERI CAPACITY HAI?☠️",
+"[TARGET] CHAT ME APNE PAPA KA NAAM DEKH 👀",
+"[TARGET] CHUTKI BAAJA KE DFFN KAR DUNGA BALAK🏃‍♂️",
+"[TARGET] ROBLOX CHOD DE BETA TERSE NA HOPAYEGA🤡",
+"[TARGET] APNI AURA MINUS ME LAKAR BAITH GAYA WAH😭",
+"[TARGET] TMX MEH ALOO DAL DUNGA 🥔",
+"[TARGET] AA GAYA EK OR LOOSER L LENE 🏁",
+"[TARGET] TERI CHAT SPEED MERE SAMNE CHAI-PAANI HAI🍵",
+"[TARGET] CHILLA MAT CHUPCHAP EMPIRE DEKH DÈMØNKIÑG KA👑",
+"[TARGET] TU KHUD CHOTI CHUTKI HAI RND🤣",
+"[TARGET] TMX MEH BHOOT DAL DUNGA 👻",
+"[TARGET] TERI SKILL MERE JUOTE KE BARABAR BHI NAHI NIKLI👟",
+"[TARGET] AB CRYING FACE WALE EMOJI BHEJNA SHURU KARDE😂",
+"[TARGET] CHOTA LALLU PACKET BADA DHAMAKA BHI NAHI HAI TU💣",
+"[TARGET] RUNNING CHAT PE PAPA BOLNA SIKH PEHLE😍",
+"[TARGET] TMX MEH CHIPMUNKS CHOD DUNGA🐿️",
+"[TARGET] TERI SPEED DEKH KE MUJHE HASI AA RAHI HAI 😭",
+"[TARGET] KYA RE LALLU ITNA SLOW CHALTA HAI KYA?",
+"[TARGET] NOX SE PANGA TERI ZINDAGI KI BIG MISTAKE CLOWN🤡",
+"[TARGET] TMX MEH KACHRA SET DAAL DUNGA🗑️",
+"[TARGET] TU PAIDA HI LOOSER HUAA THA KYA BETA👀",
+"[TARGET] CHUP CHAP SERVER LEAVE KARDE IZZAT BACH JAYEGI🏃‍♂️",
+"[TARGET] TMX MEH GADHA BHI SHARMA JAYE UNKI SKILL HAI TERI🐴",
+"[TARGET] MERI ROAST SPEED DEKH KE SYSTEM HANG HO GAYA TERA💻",
+"[TARGET] CHLO EK AUR L APNE ACCOUNT ME ADD KARLO FREE ME🤣",
+"[TARGET] TMX MEH JADU DAAL DUNGA 👽",
+"[TARGET] APNE GROUP KO BULA LALA AKELA NA JHEL PAYEGA TOON☠️",
+"[TARGET] TERI SHAKAL PE CLOWN EMOJI SUIT KARTA HAI 🤡",
+"[TARGET] CHAT BOX ME DFFN LIKH DUNGA POORA 🩸",
+"[TARGET] TMX MEH ZERO VALUATION HAI TERI BETA⭕",
+"[TARGET] EMPIRE KE SAMNE CHUHE KI TARAH CHUP GAYA TU🐀",
+"[TARGET] AB KAHAN GAYI TERI SARI AKKAD LALLU LAAL😭",
+"[TARGET] TMX MEH BATMAN BHI RO PADEGA AISA ROAST HAI TU🦇",
+"[TARGET] DEKH DEKH APNA END DEKH DÈMØNKIÑG KE HAATHON🔥",
+"[TARGET] CHAT KI SPEED BADHA PEHLE TU CHOTI CHUTKI RUNNER🏃‍♂️",
+"[TARGET] TMX MEH TAMATAR PHANK KE MARUNGA 🍅",
+"[TARGET] TU TOH ROBLOX KA SABSE BADA ROAST PROODUCT HAI BATA🤣",
+"[TARGET] TERI BOLTI BAND KARDI EK HI EXECUTE ME 🤫",
+"[TARGET] TMX MEH GHOST RIDER CHALA DUNGA 🔥",
+"[TARGET] APNI CHAT KI CAPACITY BADHA LOOSER CLOWN🤡",
+"[TARGET] AAJA AAJA EK MULTI ROAST LOOP AUR KHALE MEH😂",
+"[TARGET] TMX MEH MICKEY MOUSE BHI HAS RHA HAI TERPE🐭",
+"[TARGET] NOX SE BURA PANGA LELIYA AB BHUGTO BETO⚡",
+"[TARGET] CHUP CHAP KNEEL DOWN HO JA PAPA KE SAMNE👑",
+"[TARGET] TMX MEH SPIDERMAN KA JAAL FAINK DUNGA🕸️",
+"[TARGET] TERI FIGHTING SKILL BILKUL ZERO HAI BALAK NOOB❌",
+"[TARGET] RO RO KE CHAT BOX MAT BHAR DENA ABHI😭",
+"[TARGET] TMX MEH POPCORN KHATE KHATE DEKH RHA HU TERI HAR🍿",
+"[TARGET] TERA TIME KHATAM AB CHAL CHALTI BANN CHOTU🏃‍♂️",
+"[TARGET] DEMONKING KA EMPIRE TERE JAISE HARKATON SE NHI HILTA☠️",
+"[TARGET] TMX MEH NINJA HATTORI BHI RO PADEGA DEKH KE🐱",
+"[TARGET] KYA HUA SPEECHLESS HO GAYA KYA BALAK🤣",
+"[TARGET] APNI HARKATE SUDHAR JAO WARNA AISE HI DFFN HOGE🔥",
+"[TARGET] TMX MEH SUPERMAN BHI FAIL HAI MERE SAMNE🦸‍♂️",
+"[TARGET] TERI KOI VALUE NAHI HAI SERVER ME CHECK KARLE LOOP CHECKER⚙️",
+"[TARGET] L L L L L KA DHER LAGA DUNGA TERE CHAT PE🏁",
+"[TARGET] TMX MEH CHOTA BHEEM BULA DUNGA LADNE TERSRE🦁",
+"[TARGET] ITNA BEKAR FYTER AAJ TAK NAHI DEKHA ROBLOX ME MEHNE😭",
+"[TARGET] APNE CONFIGURATIONS BADAL LE TU MERE SAMNE HANG HAI CLOWN🤡",
+"[TARGET] TMX MEH DRAGON BALL Z CHALA DUNGA DETROYER💥",
+"[TARGET] TU TOH EK NUMBER KA CHAT RUNNER NIKLA RE RUNNER RUN🏃‍♂️",
+"[TARGET] TERI CORE VALUE SCRIPT SE BHI CHOTI NIKLI LALLU🤣",
+"[TARGET] TMX MEH SHREK BHI HAS RAHA HAI TERPE RE BALAK👹",
+"[TARGET] APNI CHAT KA KEYBOARD DIRECT REPAIR KARVA CHOTU🔧",
+"[TARGET] NOX KA RAJ HAI TUM SAB KA ANTH HAI YAHA PAR☠️",
+"[TARGET] TMX MEH PACMAN KI TARAH KHURAAK BANADUNGA TERI👾",
+"[TARGET] AB KYA HI BOLEGA TU TERI SARI AKKAD DFFN HO GAYI CORNER ME⚰️",
+"[TARGET] CHUP CHAP RAHEGA TOH KAM L MILEGA WARNA UNLIMITED L LELE🏁",
+"[TARGET] TMX MEH SONIC SE BHI FAST ROAST CHALTA HAI MERA🦔",
+"[TARGET] TERI IZZAT KA CHAT ME FALUDA BANADIA RE LOOSER😂",
+"[TARGET] AGAR LAKSHAN ACCHE HOTE TOH AAJ PAPA REHEM KARTE BTA👑",
+"[TARGET] TMX MEH THANOUS KA SNAP MAR DUNGA GAYAB HOGA TU🫰",
+"[TARGET] ROBLOX KI AUDIENCE KA SABSE BADA NOOB MEMBER HAI TU🤡",
+"[TARGET] CHAT BOX KA KING EK HI HAI DÈMØNKIÑG.. SMJH AYA?🔥",
+"[TARGET] TMX MEH PIKACHU SE BHI BADA SHOCK LAG GAYA TERA SYSTEM JAL GAYA⚡",
+"[TARGET] AB APNE DOSTON KO BULAKE LAO WO BHI L LEKAR JAYENGE CHOTU🏃‍♂️",
+"[TARGET] TERA ENTIRE GAMEPLAY CRASH KARADUNGA ROAST SE MEH ABHI😭",
+"[TARGET] TMX MEH MINIONS BHI TERSE BADIYA CHAT KARTE HAIN🍌",
+"[TARGET] TU TOH BILKUL SADA HUA ALOO NIKLA RE LALLU PACKET PACKET PACK🤣",
+"[TARGET] NOX SE JEETNA YAANI KHUD KO KHUD SE DFFN KARNA BETO⚰️",
+"[TARGET] TMX MEH SIMPSON BHI BOR HO GAYA TERI CHAT SPEED DEKH KE🍩",
+"[TARGET] APNI CAPACITY KAHAN CHUPA KE RAKHI HAI COWARD CHUHE?🐀",
+"[TARGET] APNE SCRIPT KO BHI BOL DE WO BHI APNE PAPA KO SALUTE KARE👑",
+"[TARGET] TMX MEH TARZAN KI TARAH JUNGLE ME CHODDUNGA RUNNER🐒",
+"[TARGET] TERI TOH POORI CONFIGURATION HI BLANK HAI CHUTKI LALLU LAAL🤡",
+"[TARGET] CHAL AB AGLE GENERATION ME SEEKH KE ANA CHAT FIGHT KRNA LELE L🏁",
+"[TARGET] TMX MEH DONALD DUCK BHI QUACK QUACK KARKE HAS RAHA HAI🦆",
+"[TARGET] TERI ROASTING CAPACITY MERI LINE NUMBER 4 SE BHI KAM HAI RUNNER🤣",
+"[TARGET] EGO EMPIRE KA POWER TERE ENGINE ME HIT HO GAYA SADA HUA DEKH SYSTEM💣",
+"[TARGET] TMX MEH SCOOBY DOO BHI DHOOND NAHI PAYEGA TERI SKILL DOGGY🐶",
+"[TARGET] APNE CHAT BOX SE APNI LALLU CHAT DELETE KAR AUR SCREENSHOT LELE CRASH KA😭",
+"[TARGET] AGAR HIMMAT HAI TOH 0.1 SPEED ME CHAT JHEL KE DIKHA CLOWN RUNNER CLOWN🤡",
+"[TARGET] TMX MEH BEN 10 KAA ALIEN X BAN KE DFFN KAR DUNGA👽",
+"[TARGET] TU TOH BILKUL CHOTA BACCHA NIKLA RE HAGGYS LOOSER LALLU PACKET BABY👶",
+"[TARGET] CHAT ENGINE KA MASTER NOX HAI AUR RAHEGA SMJHE BETA PAPA SE PANGA NAHI❌",
+"[TARGET] TMX MEH SHINCHAN KA ACTIONS DIKHA DUNGA TERI AKKAD MEH CRASH HO JAYEGI SHINCHAN🤠",
+"[TARGET] AB CHAL STOP BUTTON DABANE KA TIME BHI NHI DUNGA ROAST ENJOY KAR APNA RE NOOB LOOSER😂🔥"
+}
+
+task.spawn(function()
+local patternIndex = 1
+while IsSpamming do
+local currentTarget = TargetInput.Text == "" and "TARGET" or TargetInput.Text
+
+local chosenTemplate = templates[patternIndex]
+
+-- String injection for precise targeting
+local finalSpamBody = string.gsub(chosenTemplate, "%[TARGET%]", currentTarget)
+local bigSpamText = finalSpamBody
+
+-- Length limit filter
+if #bigSpamText > 198 then
+bigSpamText = bigSpamText:sub(1, 195) .. ".."
+end
+
+SayMessage(bigSpamText)
+
+patternIndex = (patternIndex % #templates) + 1
+task.wait(delayTime)
+end
+end)
+end)
+
+StopBtn.MouseButton1Click:Connect(function()
+PlayClickSound()
+IsSpamming = false
+StartBtn.Text = "EXECUTE ROAST 😈"
+StartBtn.BackgroundColor3 = Color3.fromRGB(0, 100, 255) -- Back to Blue
+end)
