@@ -1,0 +1,250 @@
+-- [[ IMMORTAL SHADOW| Ultimate Multi-Pattern Spammer (All Credits) ]] --
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local TextChatService = game:GetService("TextChatService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- ScreenGui Setup
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "IMMORTALSpammerUI_V5"
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ResetOnSpawn = false
+
+-- Yellow/Gold Theme (replaced Red)
+local BG_COLOR = Color3.fromRGB(15, 15, 15)
+local ACCENT_COLOR = Color3.fromRGB(255, 215, 0) -- Gold
+local TEXT_COLOR = Color3.fromRGB(255, 255, 255)
+local BOX_BG = Color3.fromRGB(25, 25, 25)
+local BORDER_COLOR = Color3.fromRGB(50, 50, 50)
+
+-- Main Toggle Button
+local ToggleBtn = Instance.new("TextButton")
+ToggleBtn.Size = UDim2.new(0, 60, 0, 30)
+ToggleBtn.Position = UDim2.new(0, 10, 0, 10)
+ToggleBtn.BackgroundColor3 = BG_COLOR
+ToggleBtn.TextColor3 = ACCENT_COLOR
+ToggleBtn.TextSize = 14
+ToggleBtn.Font = Enum.Font.SourceSansBold
+ToggleBtn.Text = "OPEN"
+ToggleBtn.BorderSizePixel = 1
+ToggleBtn.BorderColor3 = ACCENT_COLOR
+ToggleBtn.Parent = ScreenGui
+
+-- UI Container
+local MainContainer = Instance.new("Frame")
+MainContainer.Size = UDim2.new(1, 0, 1, 0)
+MainContainer.BackgroundTransparency = 1
+MainContainer.Visible = true
+MainContainer.Parent = ScreenGui
+
+-- Helper function to style text boxes
+local function styleTextBox(box, placeholder, parent)
+box.BackgroundColor3 = BOX_BG
+box.TextColor3 = TEXT_COLOR
+box.PlaceholderText = placeholder
+box.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)
+box.Text = ""
+box.TextSize = 14
+box.Font = Enum.Font.SourceSans
+box.BorderSizePixel = 1
+box.BorderColor3 = BORDER_COLOR
+box.Parent = parent
+end
+
+-- 1. Main Menu (30% Size)
+local MainMenu = Instance.new("Frame")
+MainMenu.Size = UDim2.new(0.3, 0, 0.55, 0)
+MainMenu.Position = UDim2.new(0.25, 0, 0.22, 0)
+MainMenu.BackgroundColor3 = BG_COLOR
+MainMenu.BackgroundTransparency = 0.1
+MainMenu.BorderSizePixel = 1
+MainMenu.BorderColor3 = ACCENT_COLOR
+MainMenu.Active = true
+MainMenu.Draggable = true
+MainMenu.Parent = MainContainer
+
+-- Title for Main Menu
+local MainTitle = Instance.new("TextLabel")
+MainTitle.Size = UDim2.new(1, 0, 0, 35)
+MainTitle.BackgroundColor3 = ACCENT_COLOR
+MainTitle.TextColor3 = TEXT_COLOR
+MainTitle.Font = Enum.Font.SourceSansBold
+MainTitle.TextSize = 16
+MainTitle.Text = "EGO EMIRE"
+MainTitle.Parent = MainMenu
+
+-- TARGET 1 (Top Left)
+local Target1 = Instance.new("TextBox")
+Target1.Size = UDim2.new(0.42, 0, 0.2, 0)
+Target1.Position = UDim2.new(0.06, 0, 0.15, 0)
+styleTextBox(Target1, "TARGET 1", MainMenu)
+
+-- TARGET 2 (Top Right)
+local Target2 = Instance.new("TextBox")
+Target2.Size = UDim2.new(0.42, 0, 0.2, 0)
+Target2.Position = UDim2.new(0.52, 0, 0.15, 0)
+styleTextBox(Target2, "TARGET 2", MainMenu)
+
+-- TARGET 3 (Center)
+local Target3 = Instance.new("TextBox")
+Target3.Size = UDim2.new(0.88, 0, 0.2, 0)
+Target3.Position = UDim2.new(0.06, 0, 0.40, 0)
+styleTextBox(Target3, "TARGET 3", MainMenu)
+
+-- Speed / Delay Box (Bottom Center)
+local SpeedBox = Instance.new("TextBox")
+SpeedBox.Size = UDim2.new(0.88, 0, 0.15, 0)
+SpeedBox.Position = UDim2.new(0.06, 0, 0.68, 0)
+styleTextBox(SpeedBox, "Speed (Delay in seconds)", MainMenu)
+SpeedBox.Text = "0.8"
+
+-- 2. Side Menu (15% Size, Patla Sa)
+local SideMenu = Instance.new("Frame")
+SideMenu.Size = UDim2.new(0.15, 0, 0.55, 0)
+SideMenu.Position = UDim2.new(0.57, 0, 0.22, 0)
+SideMenu.BackgroundColor3 = BG_COLOR
+SideMenu.BackgroundTransparency = 0.1
+SideMenu.BorderSizePixel = 1
+SideMenu.BorderColor3 = ACCENT_COLOR
+SideMenu.Parent = MainContainer
+
+-- Title for Side Menu
+local SideTitle = Instance.new("TextLabel")
+SideTitle.Size = UDim2.new(1, 0, 0, 35)
+SideTitle.BackgroundColor3 = ACCENT_COLOR
+SideTitle.TextColor3 = TEXT_COLOR
+SideTitle.Font = Enum.Font.SourceSansBold
+SideTitle.TextSize = 14
+SideTitle.Text = "CONTROLS"
+SideTitle.Parent = SideMenu
+
+-- Start Button
+local StartBtn = Instance.new("TextButton")
+StartBtn.Size = UDim2.new(0.85, 0, 0, 45)
+StartBtn.Position = UDim2.new(0.075, 0, 0.2, 0)
+StartBtn.BackgroundColor3 = Color3.fromRGB(20, 40, 20)
+StartBtn.TextColor3 = Color3.fromRGB(255, 215, 0) -- Gold
+StartBtn.Font = Enum.Font.SourceSansBold
+StartBtn.TextSize = 16
+StartBtn.Text = "START"
+StartBtn.BorderSizePixel = 1
+StartBtn.BorderColor3 = Color3.fromRGB(255, 215, 0) -- Gold
+StartBtn.Parent = SideMenu
+
+-- Stop Button
+local StopBtn = Instance.new("TextButton")
+StopBtn.Size = UDim2.new(0.85, 0, 0, 45)
+StopBtn.Position = UDim2.new(0.075, 0, 0.45, 0)
+StopBtn.BackgroundColor3 = Color3.fromRGB(40, 20, 20)
+StopBtn.TextColor3 = ACCENT_COLOR
+StopBtn.Font = Enum.Font.SourceSansBold
+StopBtn.TextSize = 16
+StopBtn.Text = "STOP"
+StopBtn.BorderSizePixel = 1
+StopBtn.BorderColor3 = ACCENT_COLOR
+StopBtn.Parent = SideMenu
+
+-- UI Logic & Sync Dragging
+local spamming = false
+
+MainMenu:GetPropertyChangedSignal("Position"):Connect(function()
+SideMenu.Position = UDim2.new(MainMenu.Position.X.Scale + 0.31, MainMenu.Position.X.Offset, MainMenu.Position.Y.Scale, MainMenu.Position.Y.Offset)
+end)
+
+ToggleBtn.MouseButton1Click:Connect(function()
+MainContainer.Visible = not MainContainer.Visible
+ToggleBtn.Text = MainContainer.Visible and "CLOSE" or "OPEN"
+end)
+
+-- Universal Chat Core
+local function sendChatMessage(message)
+if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
+local textChannel = TextChatService.TextChannels.RBXGeneral
+if textChannel then
+textChannel:SendAsync(message)
+end
+else
+local defaultChatSystemChatEvents = ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents")
+if defaultChatSystemChatEvents then
+local sayMessageRequest = defaultChatSystemChatEvents:FindFirstChild("SayMessageRequest")
+if sayMessageRequest and sayMessageRequest:IsA("RemoteEvent") then
+sayMessageRequest:FireServer(message, "All")
+end
+end
+end
+end
+
+-- Line-by-Line Spammer Loop
+StartBtn.MouseButton1Click:Connect(function()
+if spamming then return end
+spamming = true
+StartBtn.Text = "RUNNING..."
+
+task.spawn(function()
+while spamming do
+local name1 = (Target1.Text ~= "") and Target1.Text or "Target 1"
+local name2 = (Target2.Text ~= "") and Target2.Text or "Target 2"
+local name3 = (Target3.Text ~= "") and Target3.Text or "Target 3"
+
+local delayTime = tonumber(SpeedBox.Text) or 0.8
+local creditLine = "SCRIPT BY 🖤NOXxJACK⭐\n"
+
+-- Array of all 14 patterns with credits on top of each
+local patterns = {
+-- 1. Tornado
+creditLine .. "🌪️_______MEHH_______🌪️\n[ " .. name1 .. " ]__TMX MEH TORNADO\n[ " .. name2 .. " ]__TMY MEH CYCLONE\n[ " .. name3 .. " ]__TMZ MEH HURRICANE\n🌪️_______MEHH_______🌪️",
+
+-- 2. Galaxy
+creditLine .. "🌌_______LOL_______🌌\n[ " .. name1 .. " ]__TMX MEH GALAXY\n[ " .. name2 .. " ]__TMY MEH NEBULA\n[ " .. name3 .. " ]__TMZ MEH SUPERNOVA\n🌌_______LOL_______🌌",
+
+-- 3. Wolf
+creditLine .. "🐺_______MEHH_______🐺\n[ " .. name1 .. " ]__TMX MEH WOLF\n[ " .. name2 .. " ]__TMY MEH TIGER\n[ " .. name3 .. " ]__TMZ MEH PANTHER\n🐺_______MEHH_______🐺",
+
+-- 4. Samurai
+creditLine .. "⚔️_______LOL_______⚔️\n[ " .. name1 .. " ]__TMX MEH SAMURAI\n[ " .. name2 .. " ]__TMY MEH NINJA\n[ " .. name3 .. " ]__TMZ MEH GLADIATOR\n⚔️_______LOL_______⚔️",
+
+-- 5. Phantom
+creditLine .. "👻_______MEHH_______👻\n[ " .. name1 .. " ]__TMX MEH PHANTOM\n[ " .. name2 .. " ]__TMY MEH REAPER\n[ " .. name3 .. " ]__TMZ MEH WRAITH\n👻_______MEHH_______👻",
+
+-- 6. King
+creditLine .. "👑_______LOL_______👑\n[ " .. name1 .. " ]__TMX MEH KING\n[ " .. name2 .. " ]__TMY MEH EMPEROR\n[ " .. name3 .. " ]__TMZ MEH WARLORD\n👑_______LOL_______👑",
+
+-- 7. Eagle
+creditLine .. "🦅_______MEHH_______🦅\n[ " .. name1 .. " ]__TMX MEH EAGLE\n[ " .. name2 .. " ]__TMY MEH FALCON\n[ " .. name3 .. " ]__TMZ MEH HAWK\n🦅_______MEHH_______🦅",
+
+-- 8. Omega
+creditLine .. "💎_______MEHH_______💎\n[ " .. name1 .. " ]__TMX MEH OMEGA\n[ " .. name2 .. " ]__TMY MEH ALPHA\n[ " .. name3 .. " ]__TMZ MEH APEX\n💎_______MEHH_______💎",
+
+-- 9. Weapons
+creditLine .. "💀_______LOL_______💀\n[ " .. name1 .. " ]__TMX MEH AK47\n[ " .. name2 .. " ]__TMY MEH M1887\n[ " .. name3 .. " ]__TMZ MEH MP40\n💀_______LOL_______💀",
+
+-- 10. Cobra
+creditLine .. "🐍_______LOL_______🐍\n[ " .. name1 .. " ]__TMX MEH COBRA\n[ " .. name2 .. " ]__TMY MEH SCORPION\n[ " .. name3 .. " ]__TMZ MEH BLACK MAMBA\n🐍_______LOL_______🐍",
+
+-- 11. Galaxy 2
+creditLine .. "🌌_______LOL_______🌌\n[ " .. name1 .. " ]__TMX MEH GALAXY\n[ " .. name2 .. " ]__TMY MEH NEBULA\n[ " .. name3 .. " ]__TMZ MEH BLACKHOLE\n🌌_______LOL_______🌌",
+
+-- 12. Thunder
+creditLine .. "⚡_______MEHH_______⚡\n[ " .. name1 .. " ]__TMX MEH THUNDER\n[ " .. name2 .. " ]__TMY MEH TSUNAMI\n[ " .. name3 .. " ]__TMZ MEH TORNADO\n⚡_______MEHH_______⚡",
+
+-- 13. Eagle 2
+creditLine .. "🦅_______MEHH_______🦅\n[ " .. name1 .. " ]__TMX MEH EAGLE\n[ " .. name2 .. " ]__TMY MEH FALCON\n[ " .. name3 .. " ]__TMZ MEH PHOENIX\n🦅_______MEHH_______🦅",
+
+-- 14. King 2
+creditLine .. "👑_______MEHH_______👑\n[ " .. name1 .. " ]__TMX MEH KING\n[ " .. name2 .. " ]__TMY MEH EMPEROR\n[ " .. name3 .. " ]__TMZ MEH WARLORD\n👑_______MEHH_______👑"
+}
+
+-- Loop through all patterns continuously
+for _, currentPattern in ipairs(patterns) do
+if not spamming then break end
+sendChatMessage(currentPattern)
+task.wait(delayTime)
+end
+end
+end)
+end)
+
+StopBtn.MouseButton1Click:Connect(function()
+spamming = false
+StartBtn.Text = "START"
+end)
