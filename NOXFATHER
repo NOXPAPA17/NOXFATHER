@@ -1,0 +1,297 @@
+-- SPAMMER BY EDRIN 💀
+
+local Players = game:GetService("Players")
+local TextChatService = game:GetService("TextChatService")
+local RunService = game:GetService("RunService")
+local SoundService = game:GetService("SoundService")
+
+local player = Players.LocalPlayer
+local enabled = false
+
+--------------------------------------------------
+-- PLAY SOUND ON LOAD
+--------------------------------------------------
+
+task.spawn(function()
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://18667264971"
+	sound.Parent = SoundService
+	sound.Volume = 1
+	sound:Play()
+end)
+
+--------------------------------------------------
+-- MESSAGES
+--------------------------------------------------
+local replies = {
+    "SPAMMER BY EDRIN 💀",
+    "😋 SUN LIYA?",
+    "PAIR CHU EDRIN KE 👑",
+    "TMX MEH KHEER🍨",
+    "TMX MEH HALWA🎂",
+    "BACCHE EDRIN ON TOP👑",
+    "TMX MEH EGO😄",
+    "TMX MEH ELECTRICITY ⚡",
+    "TMX MEH KURKURE🍪",
+    "LEAVE MARDE 🤣",
+    "EDRIN ON TOP BOL 🔥",
+    "TMX MEH BOOK 📚",
+    "TMX MEH PARLE G🤣",
+    "ITNA LALLU FYTER🤧",
+    "MERA BACCHA👑",
+    "TMX MEH PETROLEUM",
+    "DAR KYU RAHA🤡",
+    "BHAG JA BACHE😹",
+    "TMX MEH DINO 😈",
+    "TMX MEH MAJDOOR",
+    "TMX MEH SCRIPT",
+    "TMX MEH TREE🌴",
+    "TMX MEH CLIP",
+    "TMX ALLU🥔",
+    "TMX MEH GOAT",
+    "TMX MEH BLAZE",
+    "TMX MEH SALT",
+    "TMX MEH ROD",
+    "TMX MEH UNIVERSE",
+    "TMX MEH SOFA",
+    "TMX MEH KEYBOARD",
+    "TMX MEH SNIPER",
+    "EDRIN ON TOP👑",
+    "TMX MEH MONITOR",
+    "TMX MEH TABLE",
+    "TMX MEH GALAXY",
+    "TMX MEH MUSHROOM",
+    "TMX MEH STONE",
+    "TMX MEH BOT",
+    "TMX MEH TAB",
+    "TMX MEH CYLINDER",
+    "TMX MEH KING",
+    "TMX MEH VOID",
+    "TMX MEH REAPER",
+    "TMX MEH GOD",
+    "TMX MEH MASTER",
+    "TMX MEH NOVA",
+    "TMX MEH BEAST",
+    "TMX MEH LEGEND",
+    "TMX MEH GHOST",
+    "TMX MEH NINJA",
+    "TMX MEH STAR",
+    "TMX MEH MOON",
+    "TMX MEH NEON",
+    "TMX MEH OMEGA",
+    "TMX MEH STICK",
+    "TMX MEH PAPER",
+    "TMX MEH STYLE",
+    "TMX MEH ALPHA",
+    "TMX MEH FISH",
+    "TMX MEH VENOM",
+    "TMX MEH CHAOS",
+    "TMX MEH BUILDING",
+    "USE SPAMMER BY EDRIN 💀"
+}
+
+--------------------------------------------------
+-- SEND MESSAGE
+--------------------------------------------------
+
+local function send(msg)
+	local channel = TextChatService.TextChannels.RBXGeneral
+	channel:SendAsync(msg)
+end
+
+--------------------------------------------------
+-- LOADED MESSAGE
+--------------------------------------------------
+
+task.spawn(function()
+	local line = string.rep("_",150)
+	send(line.."[😋 SPAMMER BY EDRIN 💀 LOADED]")
+end)
+
+--------------------------------------------------
+-- GUI
+--------------------------------------------------
+
+local gui = Instance.new("ScreenGui")
+gui.Parent = player.PlayerGui
+gui.ResetOnSpawn = false
+
+-- PANEL
+local frame = Instance.new("Frame")
+frame.Parent = gui
+frame.Size = UDim2.new(0,300,0,280)
+frame.Position = UDim2.new(0.5,-150,0.5,-140)
+frame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+frame.Visible = false
+frame.Active = true
+frame.Draggable = true
+Instance.new("UICorner",frame).CornerRadius = UDim.new(0,10)
+
+-- SHADOW
+local shadow = Instance.new("ImageLabel")
+shadow.Parent = frame
+shadow.Size = UDim2.new(1,40,1,40)
+shadow.Position = UDim2.new(0,-20,0,-20)
+shadow.BackgroundTransparency = 1
+shadow.Image = "rbxassetid://1316045217"
+shadow.ImageTransparency = 0.5
+shadow.ScaleType = Enum.ScaleType.Slice
+shadow.SliceCenter = Rect.new(10,10,118,118)
+shadow.ZIndex = 0
+
+-- BORDER
+local stroke = Instance.new("UIStroke")
+stroke.Parent = frame
+stroke.Thickness = 2
+stroke.Color = Color3.fromRGB(0,170,255)
+
+-- TITLE
+local title = Instance.new("TextLabel")
+title.Parent = frame
+title.Size = UDim2.new(1,0,0,35)
+title.BackgroundColor3 = Color3.fromRGB(35,35,35)
+title.Text = "SPAMMER BY EDRIN 💀"
+title.TextColor3 = Color3.new(1,1,1)
+title.Font = Enum.Font.GothamBold
+title.TextScaled = true
+Instance.new("UICorner",title)
+
+-- NAME INPUT
+local nameBox = Instance.new("TextBox")
+nameBox.Parent = frame
+nameBox.Size = UDim2.new(0,250,0,35)
+nameBox.Position = UDim2.new(0,25,0,50)
+nameBox.PlaceholderText = "Enter Name..."
+nameBox.BackgroundColor3 = Color3.fromRGB(45,45,45)
+nameBox.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner",nameBox)
+
+-- DELAY INPUT
+local delayBox = Instance.new("TextBox")
+delayBox.Parent = frame
+delayBox.Size = UDim2.new(0,250,0,35)
+delayBox.Position = UDim2.new(0,25,0,95)
+delayBox.PlaceholderText = "Delay seconds..."
+delayBox.BackgroundColor3 = Color3.fromRGB(45,45,45)
+delayBox.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner",delayBox)
+
+-- LINE STYLE INPUT
+local lineBox = Instance.new("TextBox")
+lineBox.Parent = frame
+lineBox.Size = UDim2.new(0,250,0,35)
+lineBox.Position = UDim2.new(0,25,0,140)
+lineBox.PlaceholderText = "Line Style (_ @ # + ~)"
+lineBox.BackgroundColor3 = Color3.fromRGB(45,45,45)
+lineBox.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner",lineBox)
+
+-- START BUTTON
+local start = Instance.new("TextButton")
+start.Parent = frame
+start.Size = UDim2.new(0,110,0,40)
+start.Position = UDim2.new(0,25,0,190)
+start.Text = "START"
+start.BackgroundColor3 = Color3.fromRGB(0,170,120)
+start.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner",start)
+
+-- STOP BUTTON
+local stop = Instance.new("TextButton")
+stop.Parent = frame
+stop.Size = UDim2.new(0,110,0,40)
+stop.Position = UDim2.new(0,165,0,190)
+stop.Text = "OFF"
+stop.BackgroundColor3 = Color3.fromRGB(170,40,40)
+stop.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner",stop)
+
+--------------------------------------------------
+-- CREDITS
+--------------------------------------------------
+
+local credits = Instance.new("TextLabel")
+credits.Parent = frame
+credits.Size = UDim2.new(1,0,0,20)
+credits.Position = UDim2.new(0,0,1,-22)
+credits.BackgroundTransparency = 1
+credits.Text = "SPAMMER BY EDRIN 💀"
+credits.TextColor3 = Color3.fromRGB(255,215,0)
+credits.Font = Enum.Font.GothamBold
+credits.TextScaled = true
+
+--------------------------------------------------
+-- FLOATING BUTTON
+--------------------------------------------------
+
+local float = Instance.new("TextButton")
+float.Parent = gui
+float.Size = UDim2.new(0,55,0,55)
+float.Position = UDim2.new(0,120,0,220)
+float.Text = "😋"
+float.TextColor3 = Color3.new(1,1,1)
+float.Active = true
+float.Draggable = true
+
+local floatCorner = Instance.new("UICorner")
+floatCorner.Parent = float
+floatCorner.CornerRadius = UDim.new(1,0)
+
+float.MouseButton1Click:Connect(function()
+	frame.Visible = not frame.Visible
+end)
+
+-- RGB FLOAT BUTTON
+task.spawn(function()
+	local hue = 0
+	while true do
+		hue = (hue + 0.005) % 1
+		float.BackgroundColor3 = Color3.fromHSV(hue,1,1)
+		RunService.RenderStepped:Wait()
+	end
+end)
+
+--------------------------------------------------
+-- SPAM SYSTEM
+--------------------------------------------------
+
+start.MouseButton1Click:Connect(function()
+	local target = nameBox.Text
+	local delay = tonumber(delayBox.Text) or 2
+	local style = lineBox.Text ~= "" and lineBox.Text or "@"
+
+	if target == "" then return end
+
+	enabled = false
+	task.wait(0.1)
+	enabled = true
+
+	task.spawn(function()
+		while enabled do
+			for _, msg in pairs(replies) do
+				if not enabled then break end
+
+				local fixedPrefix = "SPAMMER BY EDRIN 💀"
+				local taggedTarget = "[" .. target .. "]"
+
+				local baseText = fixedPrefix .. " " .. taggedTarget .. " " .. msg
+				local totalLength = 190
+
+				local remaining = totalLength - string.len(baseText)
+				if remaining < 5 then
+					remaining = 5
+				end
+
+				local line = string.rep(style, remaining)
+				local finalMsg = fixedPrefix .. " 😋 " .. line .. " " .. taggedTarget .. " " .. msg
+
+				send(finalMsg)
+				task.wait(delay)
+			end
+		end
+	end)
+end)
+
+stop.MouseButton1Click:Connect(function()
+	enabled = false
+end)
