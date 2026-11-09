@@ -1,4 +1,4 @@
--- SPAMMER BY EDRIN 💀
+-- SPAMMER BY NOX 💀
 
 local Players = game:GetService("Players")
 local TextChatService = game:GetService("TextChatService")
@@ -24,17 +24,17 @@ end)
 -- MESSAGES
 --------------------------------------------------
 local replies = {
-    "SPAMMER BY EDRIN 💀",
+    "SPAMMER BY NOX 💀",
     "😋 SUN LIYA?",
-    "PAIR CHU EDRIN KE 👑",
+    "PAIR CHU NOX KE 👑",
     "TMX MEH KHEER🍨",
     "TMX MEH HALWA🎂",
-    "BACCHE EDRIN ON TOP👑",
+    "BACCHE NOX ON TOP👑",
     "TMX MEH EGO😄",
     "TMX MEH ELECTRICITY ⚡",
     "TMX MEH KURKURE🍪",
     "LEAVE MARDE 🤣",
-    "EDRIN ON TOP BOL 🔥",
+    "NOX ON TOP BOL 🔥",
     "TMX MEH BOOK 📚",
     "TMX MEH PARLE G🤣",
     "ITNA LALLU FYTER🤧",
@@ -56,7 +56,7 @@ local replies = {
     "TMX MEH SOFA",
     "TMX MEH KEYBOARD",
     "TMX MEH SNIPER",
-    "EDRIN ON TOP👑",
+    "NOX ON TOP👑",
     "TMX MEH MONITOR",
     "TMX MEH TABLE",
     "TMX MEH GALAXY",
